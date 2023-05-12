@@ -1,144 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7_Light Studio</title>
-  <style>
-    /* CSS 样式 */
-    .nav-menu {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #333;
-      color: #fff;
-      height: 60px;
-    }
-
-    .nav-menu a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 20px;
-    }
-
-    .nav-menu a.active {
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    .about-section {
-      padding: 50px 0;
-      background-color: #f1f1f1;
-    }
-
-    .about-text,
-    .projects-text {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: justify;
-      padding: 20px;
-      border: 1px solid #ddd;
-    }
-
-    .projects-section {
-      padding: 50px 0;
-    }
-
-    .project-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .project-card {
-      max-width: 300px;
-      min-width: 200px;
-      background-color: #fff;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: center;
-    }
-
-    .project-card h3 {
-      margin-top: 0;
-    }
-
-    .project-card img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .countdown {
-      text-align: center;
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-    }
-  </style>
+	<meta charset="UTF-8">
+	<title>7_Light Studio</title>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Noto Serif SC', serif;
+			color: #555;
+		}
+		.container {
+			padding: 20px;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+		.header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background-color: #333;
+			text-align: center;
+			padding: 10px;
+			box-shadow: 0 0 10px #888;
+			z-index: 1;
+		}
+		.header a {
+			color: #fff;
+			text-decoration: none;
+			margin: 0 10px;
+		}
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .round {
+            border-radius: 10px; /* add this line to make the CAA and RA buttons round */
+        }
+		li a:hover, .dropdown:hover .dropbtn {
+			background-color: red;
+            border-radius: 10px; /* add this line to make the box round */
+		}
+		li.dropdown {
+			display: inline-block;
+		}
+		.dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 10px; /* add this line to make the box round */
+        }
+		.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+		}
+		.dropdown-content a:hover {
+			background-color: #f1f1f1;
+		}
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+		.about-us {
+			margin-top: 80px;
+			padding: 20px;
+			border: 2px solid #ccc;
+			border-radius: 10px;
+		}
+		.project {
+			margin-top: 50px;
+			padding: 20px;
+			border: 2px solid #ccc;
+			border-radius: 10px;
+		}
+		.countdown {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			font-size: 30px;
+		}
+	</style>
 </head>
-
 <body>
-  <nav class="nav-menu">
-    <a href="#about-section" class="active">关于我们</a>
-    <a href="https://caa.com" target="_blank">CAA</a>
-    <a href="https://ra.com" target="_blank">RA</a>
-  </nav>
-
-  <section id="about-section" class="about-section">
-    <div class="about-text">
-      <h2>关于 7_Light Studio</h2>
-      <p>5345</p>
-    </div>
-  </section>
-
-  <section id="projects-section" class="projects-section">
-    <div class="projects-text">
-      <h2>我们的项目</h2>
-      <p>以下是我们最新的几个项目，欢迎了解。</p>
-    </div>
-    <div class="project-container">
-      <div class="project-card">
-        <h3><a href="https://caa.com" target="_blank">CAA</a></h3>
-        <img src="caa.jpg" alt="CAA">
-        <p>2354ytrughf</p>
-      </div>
-      <div class="project-card">
-        <h3><a href="https://ra.com" target="_blank">RA</a></h3>
-        <img src="ra.jpg" alt="RA">
-        <p>54ytdhgf</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="countdown">
-    <h2>距离N-Tw4周年（2023年10月30日）还有：</h2>
-    <p id="countdown-timer"></p>
-  </div>
-
-  <script>
-    // JavaScript 代码
-    function updateTimer() {
-      var now = new Date();
-      var target = new Date("2023-10-30T00:00:00Z");
-      var diff = target.getTime() - now.getTime();
-
-      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      var minutes = Math.floor((diff / (1000 * 60)) % 60);
-      var seconds = Math.floor((diff / 1000) % 60);
-
-      var timer = days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒";
-
-      document.getElementById("countdown-timer").innerHTML = timer;
-    }
-
-    setInterval(updateTimer, 1000);
-  </script>
+	<div class="header">
+		<a href="#">关于我们</a>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">我们的项目</a>
+			<div class="dropdown-content">
+				<a href="#caa" class="round">CAA</a>
+                <a href="#ra" class="round">RA</a>
+			</div>
+		</li>
+	</div>
+	<div class="container">
+		<div class="about-us">
+			<p>欢迎访问我们的网站！我们是7_Light Studio，我们在“N-T World（简称N-Tw）之中，您可以在此处了解我们的项目。喵！”</p>
+		</div>
+	</div>
+	<div class="countdown">
+		<span id="countdown"></span>
+		<span id="milliseconds"></span>
+		<br>
+		<span id="current-time"></span>
+	</div>
+	<script>
+		// 倒计时
+		var countdownDate = new Date("2023-10-30T00:00:00").getTime();
+		var countdown = setInterval(function() {
+			var now = new Date().getTime();
+			var distance = countdownDate - now;
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			var milliseconds = Math.floor(distance % 1000);
+			document.getElementById("countdown").innerHTML = "距离N-Tw4周年还有 " + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + milliseconds + "ms ";
+			if (distance < 0) {
+				clearInterval(countdown);
+				document.getElementById("countdown").innerHTML = "N-Tw4周年已到达！！！";
+			}
+		}, 1);
+		// 正计时
+		var startTime = new Date("2023-05-12T13:04:00").getTime();
+		var currentTime = setInterval(function() {
+			var now = new Date().getTime();
+			var distance = now - startTime;
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			var milliseconds = Math.floor(distance % 1000);
+			document.getElementById("current-time").innerHTML = "此网站已经创建 " + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + milliseconds + "ms ";
+		}, 1);
+	</script>
 </body>
-
-</html>
-``` 
-
-*注意：请
+</html> 
