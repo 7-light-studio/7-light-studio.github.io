@@ -1,5 +1,144 @@
-<div>
-  <h1>Hello 大家好</h1>
-  <p>我是7-Light，欢迎来到我的个人网站！</p>
-  <p>本网站创建于2023年5月12日，持续更新中，感谢您的访问。</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7_Light Studio</title>
+  <style>
+    /* CSS 样式 */
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333;
+      color: #fff;
+      height: 60px;
+    }
+
+    .nav-menu a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    .nav-menu a.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .about-section {
+      padding: 50px 0;
+      background-color: #f1f1f1;
+    }
+
+    .about-text,
+    .projects-text {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+
+    .projects-section {
+      padding: 50px 0;
+    }
+
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .project-card {
+      max-width: 300px;
+      min-width: 200px;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+    }
+
+    .project-card img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .countdown {
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-menu">
+    <a href="#about-section" class="active">关于我们</a>
+    <a href="https://caa.com" target="_blank">CAA</a>
+    <a href="https://ra.com" target="_blank">RA</a>
+  </nav>
+
+  <section id="about-section" class="about-section">
+    <div class="about-text">
+      <h2>关于 7_Light Studio</h2>
+      <p>5345</p>
+    </div>
+  </section>
+
+  <section id="projects-section" class="projects-section">
+    <div class="projects-text">
+      <h2>我们的项目</h2>
+      <p>以下是我们最新的几个项目，欢迎了解。</p>
+    </div>
+    <div class="project-container">
+      <div class="project-card">
+        <h3><a href="https://caa.com" target="_blank">CAA</a></h3>
+        <img src="caa.jpg" alt="CAA">
+        <p>2354ytrughf</p>
+      </div>
+      <div class="project-card">
+        <h3><a href="https://ra.com" target="_blank">RA</a></h3>
+        <img src="ra.jpg" alt="RA">
+        <p>54ytdhgf</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="countdown">
+    <h2>距离N-Tw4周年（2023年10月30日）还有：</h2>
+    <p id="countdown-timer"></p>
+  </div>
+
+  <script>
+    // JavaScript 代码
+    function updateTimer() {
+      var now = new Date();
+      var target = new Date("2023-10-30T00:00:00Z");
+      var diff = target.getTime() - now.getTime();
+
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      var minutes = Math.floor((diff / (1000 * 60)) % 60);
+      var seconds = Math.floor((diff / 1000) % 60);
+
+      var timer = days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒";
+
+      document.getElementById("countdown-timer").innerHTML = timer;
+    }
+
+    setInterval(updateTimer, 1000);
+  </script>
+</body>
+
+</html>
+``` 
+
+*注意：请
