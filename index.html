@@ -148,6 +148,11 @@
 			var milliseconds = Math.floor(distance % 1000);
 			document.getElementById("current-time").innerHTML = "此网站已经创建 " + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + milliseconds + "ms ";
 		}, 1);
+
+		// Redirect to bilibili.com if the device is a mobile device
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			window.location.href = "https://www.bilibili.com";
+		}
 	</script>
 </body>
-</html> 
+</html>
